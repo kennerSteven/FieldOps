@@ -4,7 +4,7 @@ import type { NewReportType } from "../Types/Report.type";
 export const ReportCreate = async ({ ...data }: NewReportType) => {
   try {
     const { data: response } = await axios.post(
-      "http://TU_IP_LOCAL:3000/send-data",
+      "https://api-akayi7xlpa-uc.a.run.app/FieldOps",
       data,
     );
     return response;

@@ -2,17 +2,21 @@ import React from "react";
 import { View, Text, ScrollView } from "react-native";
 import ButtonComponent from "@/Src/Shared/Ui/Button/ButtonComponent";
 import InputComponent from "@/Src/Shared/Ui/Input/InputComponent";
-import PhotoPicker from "./Photo";
-import SelectPriority from "./Priority";
-import LocationPicker from "./Localitation";
-import Top from "@/Layouts/Top";
+import PhotoPicker from "../Src/Features/NewReport/Components/Photo";
+import SelectPriority from "../Src/Features/NewReport/Components/Priority";
+import LocationPicker from "../Src/Features/NewReport/Components/Localitation";
+
+
 import { titles, error } from "@/Styles/Titles.style";
-import useNewReport from "../Hooks/useNewReport";
+import useNewReport from "../Src/Features/NewReport/Hooks/useNewReport";
+import Feather from '@expo/vector-icons/Feather';
+import Layout from "@/Layouts/Layout";
 export default function NewReport() {
-  const { setReport, errors, report, submitReport } = useNewReport();
+  const { setReport, errors, report, submitReport, } = useNewReport();
   return (
-    <ScrollView style={{ backgroundColor: "#ffffff" }}>
-      <Top />
+    <Layout topLabel="Nuevo reporte" topLabelicon={<Feather name="tool" size={24} color="#007AFF" />}  >
+      <ScrollView style={{ backgroundColor: "#ffffff" }}>
+     
       <View style={{ marginHorizontal: 30 }}>
         <View style={{ marginTop: 20 }}>
           <Text style={[titles, { textAlign: "left", color: "#007AFF" }]}>
@@ -84,5 +88,6 @@ export default function NewReport() {
         </View>
       </View>
     </ScrollView>
+    </Layout>
   );
 }

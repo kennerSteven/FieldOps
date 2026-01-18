@@ -1,8 +1,8 @@
 import { useState } from "react";
 import type { NewReportType } from "../Types/Report.type";
 import type { ErrorsReport } from "../Types/Errors.type";
-import axios from "axios";
-
+import { ReportCreate } from "../Services/Report";
+import {router} from "expo-router"
 export default function useNewReport() {
   const [report, setReport] = useState<NewReportType>({
     Description: "",
@@ -25,6 +25,7 @@ export default function useNewReport() {
       Localitation: "",
       img: "",
     };
+
     let hasError = false;
 
     if (!report.Description.trim()) {
@@ -51,22 +52,24 @@ export default function useNewReport() {
     return !hasError;
   };
 
-
-
   const submitReport = async () => {
     if (!validate()) return;
 
-
     try {
-      const response = await axios.post(
-        "https://api-akayi7xlpa-uc.a.run.app/tasks",
-        report,
-      );
-      console.log("Reporte enviado:", response.data);
-    } catch (err) {
-      console.error("Error enviando el reporte:", err);
+      await ReportCreate(report);
+      console.log("Reporte enviado con éxito ");
+
+      setReport({
+        Description: "",
+        Priority: "",
+        Localitation: null,
+        img: [],
+      });
+    } catch (error) {
+      console.error("Error enviando el reporte:", error);
     }
+    router.push("/AllReports")
   };
 
-  return { report, setReport, errors, setErrors, submitReport };
+  return { report, setReport, errors, submitReport };
 }

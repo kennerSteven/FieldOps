@@ -11,8 +11,9 @@ export const btn: ViewStyle = {
   shadowOpacity: 0.15,
   shadowRadius: 3,
   elevation: 2,      
- marginBottom:40   ,
-          
+ marginBottom:100   ,
+
+ 
 };
 
 

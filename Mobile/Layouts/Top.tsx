@@ -1,26 +1,26 @@
-import { View, Text } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+import React from "react";
+import { View, Text, Touchable, TouchableOpacity } from "react-native";
 
-export default function Top() {
+import { HeaderContainer, TitleText, IconWrapper } from "./Top.styles";
+import { router } from "expo-router";
+import Ionicons from "@expo/vector-icons/Ionicons";
+export default function Top({
+  labelTop,
+  icon,
+}: {
+  labelTop: React.ReactNode;
+  icon: React.ReactNode;
+}) {
   return (
-    <View
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        paddingHorizontal: 20,
-        paddingTop: 40,
-        paddingBottom: 10,
-   
+    <View style={HeaderContainer}>
+      <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
+        <TouchableOpacity onPress={() => router.back()}>
+          <Ionicons name="return-up-back" size={34} color="#007AFF" />
+        </TouchableOpacity>
 
-        backgroundColor: "#007AFF",
-      }}
-    >
-      <Text style={{ fontSize: 22, fontWeight: "600", color: "#fefefe" }}>
-        Nuevo Reporte
-      </Text>
-      <AntDesign name="tool" size={30} color="#fefefe" />
+        <Text style={TitleText}>{labelTop}</Text>
+      </View>
+      <View style={IconWrapper}>{icon}</View>
     </View>
   );
 }
