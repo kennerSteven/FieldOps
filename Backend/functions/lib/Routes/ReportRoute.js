@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const ReportController_1 = require("../Controllers/ReportController");
+const GetReportController_1 = require("../Controllers/GetReportController");
+const Middleware_report_1 = require("../Middleware/Middleware.report");
 const router = (0, express_1.Router)();
-router.post("/", ReportController_1.createReport);
+router.post("/", Middleware_report_1.validateReport, ReportController_1.createReport);
+router.get("/", GetReportController_1.GetReports);
 exports.default = router;

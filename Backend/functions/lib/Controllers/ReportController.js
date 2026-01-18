@@ -20,6 +20,9 @@ const createReport = async (req, res) => {
             img: images.map((uri) => ({ uri })),
             createdAt: new Date(),
         };
+        if (Priority.toLowerCase() === "alta") {
+            newReport.requires_supervisor = true;
+        }
         const docRef = await firebaseConfig_1.db.collection("reports").add(newReport);
         res.status(201).json({ id: docRef.id, ...newReport });
     }

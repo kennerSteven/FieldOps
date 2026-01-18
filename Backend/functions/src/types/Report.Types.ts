@@ -9,6 +9,7 @@ export interface Image {
 export default interface Report {
   Description: string;
   Priority: string;
+  requires_supervisor?:boolean
   Localitation: {
     latitude: number;
     longitude: number;

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import {db} from "../Config/firebaseConfig"
+import { db } from "../Config/firebaseConfig";
 import type Report from "../types/Report.Types";
 
 export const createReport = async (req: Request, res: Response) => {
@@ -25,6 +25,10 @@ export const createReport = async (req: Request, res: Response) => {
       img: images.map((uri) => ({ uri })),
       createdAt: new Date(),
     };
+
+    if (Priority.toLowerCase() === "alta") {
+      newReport.requires_supervisor = true;
+    }
 
     const docRef = await db.collection("reports").add(newReport);
 

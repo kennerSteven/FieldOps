@@ -11,5 +11,5 @@ const ReportRoute_1 = __importDefault(require("./Routes/ReportRoute"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({ origin: true }));
 app.use(express_1.default.json());
-app.use("/tasks", ReportRoute_1.default);
+app.use("/FieldOps", ReportRoute_1.default);
 exports.api = (0, https_1.onRequest)({ region: "us-central1" }, app);
