@@ -13,11 +13,11 @@ import { router } from "expo-router";
 export default function Navbar() {
   return (
     <View style={NavbarStyle}>
-      <TouchableOpacity style={NavButton}>
+      <TouchableOpacity style={NavButton} onPress={()=> router.push("/MainKpi")}>
         <View style={IconContainer}>
           <Ionicons name="home-outline" size={24} color="#9e9e9e" />
         </View>
-        <Text style={NavText}>Home</Text>
+        <Text style={NavText}>Inicio</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={NavButton} onPress={()=> router.push("/NewReport")}>
@@ -31,7 +31,7 @@ export default function Navbar() {
         <View style={IconContainer}>
           <Entypo name="bar-graph" size={24} color="#9e9e9e" />
         </View>
-        <Text style={NavText}>Reports</Text>
+        <Text style={NavText}>Reportes</Text>
       </TouchableOpacity>
     </View>
   );

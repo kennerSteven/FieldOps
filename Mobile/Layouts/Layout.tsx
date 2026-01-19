@@ -16,6 +16,7 @@ export default function Layout({ children, topLabelicon, topLabel }: props) {
         flex: 1,
         flexDirection: "column",
         justifyContent: "space-between",
+        backgroundColor:"#FFFF"
       }}
     >
       <Top icon={topLabelicon} labelTop={topLabel} />
