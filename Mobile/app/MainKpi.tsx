@@ -1,11 +1,14 @@
-import Kpi from "../Src/Features/KpiReport/Components/Kpi";
-import Layout from "@/Layouts/Layout";
+import React from "react";
 import { View } from "react-native";
 import { Image } from "expo-image";
-
 import AntDesign from "@expo/vector-icons/AntDesign";
+import Kpi from "../Src/Features/KpiReport/Components/Kpi";
+import Layout from "@/Layouts/Layout";
+import { useKpiData } from "@/Src/Features/KpiReport/Hooks/useKpi";
 
 export default function MainKpi() {
+  const { data } = useKpiData();
+
   return (
     <Layout
       topLabel="Principal"
@@ -17,6 +20,7 @@ export default function MainKpi() {
           style={{ width: 200, height: 200 }}
         />
       </View>
+
       <View
         style={{
           marginHorizontal: 30,
@@ -27,12 +31,18 @@ export default function MainKpi() {
       >
         <Kpi
           title="Daño Grave"
-          value={2}
+          value={data.alta}
           iconName="alert-outline"
           priority="high"
         />
-        <Kpi title="Daño Severo" value={2} iconName="alert" priority="medium" />
+        <Kpi
+          title="Daño Severo"
+          value={data.media}
+          iconName="alert"
+          priority="medium"
+        />
       </View>
+
       <View
         style={{
           marginHorizontal: 30,
@@ -41,8 +51,18 @@ export default function MainKpi() {
           gap: 15,
         }}
       >
-        <Kpi title="Daño Breve" value={2} iconName="map" priority="low" />
-        <Kpi title="Total de reportes" value={2} iconName="graph" priority="primary" />
+        <Kpi
+          title="Daño Breve"
+          value={data.baja}
+          iconName="map"
+          priority="low"
+        />
+        <Kpi
+          title="Total de reportes"
+          value={data.total}
+          iconName="graph"
+          priority="primary"
+        />
       </View>
     </Layout>
   );

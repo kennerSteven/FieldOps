@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   card: {
     flex: 1,
     borderRadius: 24,
-    padding: 18,
+    padding: 10,
     minHeight: 150,
     justifyContent: "space-between",
     backgroundColor: "rgb(255, 255, 255)",
@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
   },
   title: {
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: "800",
     color: "#1C1C1E",
 
