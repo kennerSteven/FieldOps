@@ -6,11 +6,7 @@ export async function GetReports(_req: Request, res: Response) {
     const querySnapshot = await db.collection("reports").get();
 
     if (querySnapshot.empty) {
-      return res.status(404).json({
-        state: "empty",
-        message: "No reports found",
-        data: [],
-      });
+ 
     }
 
     const reports = querySnapshot.docs.map((doc) => ({
@@ -24,9 +20,6 @@ export async function GetReports(_req: Request, res: Response) {
     });
   } catch (error) {
     console.error("Error al obtener reportes:", error);
-    return res.status(500).json({
-      state: "error",
-      message: "Internal server error",
-    });
+
   }
 }
