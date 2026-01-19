@@ -1,6 +1,6 @@
 #  FieldOps - Gestión de Reportes de Campo
 
-**FieldOps** es un prototipo técnica diseñada para optimizar la comunicación y supervisión entre el personal de tierra y la administración central. El sistema permite capturar, gestionar y auditar reportes de campo con alta precisión, asegurando la integridad de los datos mediante flujos de trabajo automatizados y reglas de inmutabilidad.
+**FieldOps** es un prototipo  diseñado para optimizar la comunicación y supervisión entre el personal de tierra y la administración central. El sistema permite capturar, gestionar y auditar reportes de campo con alta precisión, asegurando la integridad de los datos mediante flujos de trabajo automatizados y reglas de inmutabilidad.
 
 ---
 
